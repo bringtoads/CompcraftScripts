@@ -63,9 +63,9 @@ local function yalternate(flag)
     else
         down()
         if flag % 2 == 0 then
-            turnLeft()
-        else
             turnRight()
+        else
+            turnLeft()
         end
     end
 end
