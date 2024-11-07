@@ -47,14 +47,14 @@ end
 
 local function xalternate(flag)
     if flag % 2 == 0 then
-        turnLeft()
+        turnRight()
         forward()
-        turnLeft()
-
+        turnRight()
     else
-        turnRight()
+
+        turnLeft()
         forward()
-        turnRight()
+        turnLeft()
     end
 end
 
