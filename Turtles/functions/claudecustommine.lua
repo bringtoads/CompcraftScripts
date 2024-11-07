@@ -7,11 +7,11 @@ if #args < 3 then
 end
 
 -- Parse the arguments as numbers
-local targetx = tonumber(args[1])
-local targety = tonumber(args[2])
-local targetz = tonumber(args[3])
+local length = tonumber(args[1])
+local height = tonumber(args[2])
+local width = tonumber(args[3])
 
-if not targetx or not targety or not targetz then
+if not length or not height or not width then
     print("Invalid arguments. Provide numeric values for length, height, and breadth.")
     return
 end
@@ -21,22 +21,15 @@ local direction = 0 -- 0 = North, 1 = East, 2 = South, 3 = West
 local flagx = 0
 local flagy = 0
 
--- Update turtle's position or state
-local function updatecod()
-    -- Optional: Add code to track the turtle's position if needed
-end
-
 -- Define movement functions
 local function forward()
     turtle.dig()
     turtle.forward()
-    updatecod()
 end
 
 local function down()
     turtle.digDown()
     turtle.down()
-    updatecod()
 end
 
 local function turnRight()
@@ -78,13 +71,13 @@ local function yalternate(flag)
 end
 
 -- Mining logic
-for y = 0, targety - 1 do
+for y = 0, height - 1 do
     yalternate(flagy)
-    for x = 1, targetx - 1 do
-        for z = 1, targetz do
+    for x = 0, length - 1 do
+        for z = 1, width do
             forward()
         end
-        if x < targetx - 1 then
+        if x < length - 1 then
             xalternate(flagx)
             flagx = flagx + 1
         end
