@@ -78,7 +78,7 @@ end
 -- Mining logic
 for y = 0, targety - 1 do
     yalternate(flagy)
-    for x = 0, targetx - 1 do
+    for x = 1, targetx - 1 do
         for z = 1, targetz do
             forward()
         end
