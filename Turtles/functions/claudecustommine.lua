@@ -1,13 +1,13 @@
--- Validate input arguments
-if select("#", ...) < 3 then
-    print("Usage: mine <length> <height> <breadth>")
+-- Check if enough arguments are provided
+if #args < 3 then
+    print("Usage: mine <x> <y> <z>")
     return
 end
 
--- Parse arguments
-local targetx = tonumber(select(1, ...))
-local targety = tonumber(select(2, ...))
-local targetz = tonumber(select(3, ...))
+-- Parse the arguments as numbers
+local targetx = tonumber(args[1])
+local targety = tonumber(args[2])
+local targetz = tonumber(args[3])
 
 if not targetx or not targety or not targetz then
     print("Invalid arguments. Provide numeric values for length, height, and breadth.")
