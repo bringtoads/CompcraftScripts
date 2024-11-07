@@ -1,3 +1,5 @@
+local args = {...}
+
 -- Check if enough arguments are provided
 if #args < 3 then
     print("Usage: mine <x> <y> <z>")
