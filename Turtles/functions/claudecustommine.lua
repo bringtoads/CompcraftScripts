@@ -47,13 +47,14 @@ end
 
 local function xalternate(flag)
     if flag % 2 == 0 then
-        turnRight()
+        turnLeft()
         forward()
-        turnRight()
+        turnLeft()
+
     else
-        turnLeft()
+        turnRight()
         forward()
-        turnLeft()
+        turnRight()
     end
 end
 
@@ -74,7 +75,7 @@ end
 for y = 0, height - 1 do
     yalternate(flagy)
     for x = 0, length - 1 do
-        for z = 1, width do
+        for z = 1, width - 1 do
             forward()
         end
         if x < length - 1 then
@@ -86,4 +87,19 @@ for y = 0, height - 1 do
     flagy = flagy + 1
 end
 
-print("Mining operation complete!")
+-- print("Mining operation complete!")
+-- -- Mining logic
+-- for y = 0, height - 1 do
+--     yalternate(flagy)
+--     for z = 0, width - 1 do
+--         for x = 1, length - 1 do
+--             forward()
+--         end
+--         if x < length - 1 then
+--             xalternate(flagx)
+--             flagx = flagx + 1
+--         end
+--     end
+--     flagx = flagx + 1
+--     flagy = flagy + 1
+-- end
