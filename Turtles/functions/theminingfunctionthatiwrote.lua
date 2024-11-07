@@ -24,6 +24,18 @@ local STATUS = {
 }
 local direction = DIRECTIONS.SOUTH
 ------------------------movements--------------------------------------------------------------------------
+
+local function updatePosition()
+    if direction == DIRECTIONS.SOUTH then
+        position.z = position.z + 1
+    elseif direction == DIRECTIONS.WEST then
+        position.x = position.x - 1
+    elseif direction == DIRECTIONS.NORTH then
+        position.z = position.z - 1
+    elseif direction == DIRECTIONS.EAST then
+        position.x = position.x + 1
+    end
+end
 local function turnRight()
     turtle.turnRight()
     direction = (direction + 1) % 4
