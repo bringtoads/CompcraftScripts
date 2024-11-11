@@ -58,23 +58,22 @@ local function xalternate(flag)
     end
 end
 
-local function yalternate(flag)
+local function yAlternate(flag)
     if flag == 0 then
         down()
+    elseif flag % 2 == 0 then
+        down()
+        turnRight()
     else
         down()
-        if flag % 2 == 0 then
-            turnRight()
-        else
-            turnLeft()
-        end
+        turnLeft()
     end
 end
 
 -- Mining logic
-for y = 0, height - 1 do
-    yalternate(flagy)
-    for x = 0, length - 1 do
+for y = 1, height do
+    yAlternate(flagy)
+    for x = 1, length do
         for z = 1, width - 1 do
             forward()
         end
@@ -87,19 +86,21 @@ for y = 0, height - 1 do
     flagy = flagy + 1
 end
 
--- print("Mining operation complete!")
--- -- Mining logic
--- for y = 0, height - 1 do
---     yalternate(flagy)
---     for z = 0, width - 1 do
---         for x = 1, length - 1 do
---             forward()
---         end
---         if x < length - 1 then
---             xalternate(flagx)
---             flagx = flagx + 1
---         end
---     end
---     flagx = flagx + 1
---     flagy = flagy + 1
--- end
+local function mine(targetx, targety, targetz)
+    local flagx = 0
+    local flagy = 0
+    for y = 1, targety do
+        yAlternate(flagy)
+        for x = 1, targetx do
+            for z = 1, targetz - 1 do
+                digForward()
+            end
+            if x < targetx - 1 then
+                xAlternate(flagx)
+                flagx = flagx + 1
+            end
+        end
+        flagy = flagy + 1
+        flagx = flagx + 1
+    end
+end
