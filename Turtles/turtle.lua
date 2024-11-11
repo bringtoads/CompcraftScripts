@@ -527,10 +527,13 @@ local function pollForCommands()
             local success = response.success
             local message = response.message
             local resObj = response.data
-            logger(response)
-            logger(success)
-            logger(message)
-            logger(resObj)
+            logger("response:" .. response)
+            logger("success:" .. success)
+            logger("message:" .. message)
+            logger("resObj:" .. resObj)
+            logger("------------------")
+            logger("commandResponse:" .. commandResponse)
+            logger("mining dimenxion x:" .. commandResponse.data.miningDimensions.x)
             currentCommand = resObj
             if success then
                 if commandResponse.miningDimensions then
