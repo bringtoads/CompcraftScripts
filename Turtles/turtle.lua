@@ -412,9 +412,9 @@ end
 local function mine(targetx, targety, targetz) -- 3 3 3
     local flagx = 0
     local flagy = 0
-    for y = 1, targety do -- 1
+    for y = 0, targety  do -- 1
         yAlternate(flagy)
-        for x = 1, targetx do
+        for x = 0, targetx do
             for z = 1, targetz - 1 do
                 digForward()
             end
