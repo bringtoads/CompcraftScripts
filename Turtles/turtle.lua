@@ -58,8 +58,8 @@ local position = {
     z = 0
 }
 
--- local turtlesUrl = "http://localhost:5041/api/turtles/" -- Replace with your actual server URL
-local turtlesUrl = "https://turtleserver-production.up.railway.app/api/turtles/" -- Replace with your actual server URL
+local turtlesUrl = "http://localhost:5041/api/turtles/" -- Replace with your actual server URL
+-- local turtlesUrl = "https://turtleserver-production.up.railway.app/api/turtles/" -- Replace with your actual server URL
 local turtleId = os.getComputerID()
 local direction = DIRECTIONS.SOUTH
 local turtleName = nil
