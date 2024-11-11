@@ -540,7 +540,7 @@ local function pollForCommands()
             logger(resObj)
             logger("------------------")
             logger("mining dimenxion x:")
-            logger(commandResponse.data.miningDimensions.x)
+            logger(response.data.miningDimensions.x)
             logger("---------")
             currentCommand = resObj
             if success then
