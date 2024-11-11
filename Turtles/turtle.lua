@@ -508,7 +508,6 @@ local function getNextCommand(turtleId)
 
     local commandData = response.readAll()
     response.close()
-    logger(commandData)
     if commandData then
         -- print("Received command data: " .. commandData)
         return textutils.unserializeJSON(commandData)
@@ -528,6 +527,10 @@ local function pollForCommands()
             local success = response.success
             local message = response.message
             local resObj = response.data
+            logger(response)
+            logger(success)
+            logger(message)
+            logger(resObj)
             currentCommand = resObj
             if success then
                 if commandResponse.miningDimensions then
