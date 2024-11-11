@@ -503,7 +503,6 @@ local function getNextCommand(turtleId)
     local response = http.get(commandUrl)
     -- Check if the response is nil or false (indicating an error)
     if not response then
-        print("No command data received.")
         return nil
     end
 
@@ -513,8 +512,6 @@ local function getNextCommand(turtleId)
     if commandData then
         -- print("Received command data: " .. commandData)
         return textutils.unserializeJSON(commandData)
-    else
-        print("No command data received.")
     end
 
     return nil
@@ -544,12 +541,7 @@ local function pollForCommands()
                 else
                     commandMiningParams = {}
                 end
-            else
-                logger("no new commands")
             end
-
-        else
-            logger("no new commands")
         end
         sleep(3)
     end
