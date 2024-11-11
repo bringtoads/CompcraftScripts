@@ -349,10 +349,10 @@ local function yAlternate(flag)
         digDown()
     elseif flag % 2 == 0 then
         digDown()
-        turnRight()
+        turnLeft()
     else
         digDown()
-        turnLeft()
+        turnRight()
     end
 end
 local function xAlternate(flag)
@@ -409,10 +409,10 @@ end
 ------------------------------------------------------------------------G---------------------------------
 
 -- function mining a certain block x y z needed
-local function mine(targetx, targety, targetz)
+local function mine(targetx, targety, targetz) -- 3 3 3
     local flagx = 0
     local flagy = 0
-    for y = 1, targety do
+    for y = 1, targety do -- 1
         yAlternate(flagy)
         for x = 1, targetx do
             for z = 1, targetz - 1 do
