@@ -523,37 +523,24 @@ local function pollForCommands()
 
         -- if request is not No block right, just moving right
         if commandResponse ~= nil then
-            local response = commandResponse.command
+            local response = commandResponse
             local success = response.success
             local message = response.message
             local resObj = response.data
-            logger("response:")
-            logger(response)
-            logger("---------")
-            logger("success:")
-            logger(success)
-            logger("---------")
-            logger("message:")
-            logger(message)
-            logger("---------")
-            logger("resObj:")
-            logger(resObj)
-            logger("------------------")
-            logger("mining dimenxion x:")
-            logger()
-            logger("---------")
-            currentCommand = resObj
+            currentCommand = resObj.command
             if success then
-                if commandResponse.miningDimensions then
-                    commandMiningParams.x = response.data.miningDimensions.x
-                    commandMiningParams.y = response.data.miningDimensions.y
-                    commandMiningParams.z = response.data.miningDimensions.z
+                if resObj.miningDimensions then
+                    commandMiningParams.x = response.miningDimensions.x
+                    commandMiningParams.y = response.miningDimensions.y
+                    commandMiningParams.z = response.miningDimensions.z
 
                     logger("Mining Dimensions:" .. commandMiningParams.x .. commandMiningParams.y ..
                                commandMiningParams.z)
                 else
                     commandMiningParams = {}
                 end
+            else
+                print(message)
             end
         end
         sleep(3)
