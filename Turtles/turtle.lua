@@ -521,7 +521,6 @@ end
 local function pollForCommands()
     while true do
         local commandResponse = getNextCommand(turtleId)
-        logger(commandResponse)
 
         -- if request is not No block right, just moving right
         if commandResponse ~= nil then
