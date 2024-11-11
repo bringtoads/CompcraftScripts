@@ -530,9 +530,9 @@ local function pollForCommands()
             currentCommand = resObj.command
             if success then
                 if resObj.miningDimensions then
-                    commandMiningParams.x = response.miningDimensions.x
-                    commandMiningParams.y = response.miningDimensions.y
-                    commandMiningParams.z = response.miningDimensions.z
+                    commandMiningParams.x = resObj.miningDimensions.x
+                    commandMiningParams.y = resObj.miningDimensions.y
+                    commandMiningParams.z = resObj.miningDimensions.z
 
                     logger("Mining Dimensions:" .. commandMiningParams.x .. commandMiningParams.y ..
                                commandMiningParams.z)
