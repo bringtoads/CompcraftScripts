@@ -77,6 +77,7 @@ local dropChestPos = {
 local function logger(data)
     print(data)
 end
+
 -- if gps is connected gets the current cordinates the turtle
 -- returns true and sets postion to gps cordinates if gps is available
 -- returns false and sets position to 0,0,
